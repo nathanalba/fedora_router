@@ -1,0 +1,10 @@
+#!/bin/sh
+
+list=https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+temp=/tmp
+
+wget $list -P $temp
+
+awk '$1 == "0.0.0.0" { print "address=/"$2"/0.0.0.0/"}' $temp/hosts > /etc/dnsmasq.d/malware.conf
+
+rm $temp/hosts
