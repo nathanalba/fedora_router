@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<direct>
+  <rule ipv="ipv4" table="nat" chain="POSTROUTING" priority="0">-o eno1 -j MASQUERADE</rule>       
+  <rule ipv="ipv4" table="filter" chain="FORWARD" priority="0">-i bond0 -o eno1 -j ACCEPT</rule>
+  <rule ipv="ipv4" table="filter" chain="FORWARD" priority="0">-i eno1 -o bond0 -m state --state RELATED,ESTABLISHED -j ACCEPT</rule>
+</direct>
