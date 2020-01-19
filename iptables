@@ -1,3 +1,6 @@
+***Iptables not used.........firewalld****
+
+
 ####  Save Iptables rules........... /sbin/service iptables save
 # iptables policy to forward within the LAN
 
